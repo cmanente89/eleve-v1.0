@@ -1,0 +1,218 @@
+:root {
+  /* Colores principales */
+  --color-primario: #D21318; /* fire-engine-red: Un rojo para acentos */
+  --color-secundario: #6EBACADD; /* moonstone: Un azul/celeste para detalles */
+  --color-texto-oscuro: #1B1A15; /* eerie-black: Texto principal, títulos */
+  
+  /* Colores para fondos y textos claros */
+  --color-fondo-claro: #FAF7F2; /* isabelline: Para fondos de secciones */
+  --color-fondo-claro-alt: #E7E8E9; /* platinum: Otro fondo claro */
+  --color-texto-claro: #FFFFFE; /* white: Para texto sobre fondos oscuros */
+}
+
+/*NAVBAR*/
+
+/* Estilo del Navbar */
+.navbar {
+  /* Hacemos que se pegue arriba al hacer scroll */
+  position: sticky;
+  top: 0;
+  z-index: 1020; /* Aseguramos que quede por encima de otros elementos */
+
+  /* Reducimos el padding para que sea más pequeña */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  
+  /* Usamos tus colores de la paleta */
+  background-color: var(--color-fondo-claro);
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.navbar .navbar-brand {
+  color: var(--color-texto-oscuro) !important;
+}
+
+.navbar .nav-link {
+  color: var(--color-texto-oscuro) !important;
+  font-weight: 500;
+  /* Reducimos el padding de los enlaces para que la barra se achique */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.navbar .nav-link:hover {
+  color: var(--color-primario) !important;
+}
+
+/* HERO*/
+#hero-section {
+    position: relative; /* Necesario para que el contenido se posicione bien */
+    height: 100vh; /* Ocupa el 100% del alto de la ventana */
+    overflow: hidden; /* Asegura que la imagen no se desborde */
+    background-image: url('../img/hero.png'); /* ¡Reemplaza con la URL de tu imagen! */
+    background-size: cover; /* La imagen cubre todo el espacio */
+    background-position: center center; /* Centra la imagen */
+    background-attachment: fixed; /* ¡Este es el truco para el parallax! */
+    display: flex; /* Para centrar contenido con flexbox, si no usas las clases de Bootstrap d-flex */
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para que el texto resalte */
+}
+
+/* Estilo para el contenido dentro del Hero */
+.hero-content {
+    z-index: 10; /* Asegura que el texto esté por encima de la imagen (si se añade un overlay) */
+    max-width: 800px; /* Limita el ancho del texto */
+    padding: 0 15px; /* Pequeño padding para móviles */
+}
+
+.hero-section h1 {
+    color: var(--color-texto-claro); /* Usa tu blanco para el título */
+}
+
+.hero-section p {
+    color: var(--color-texto-claro); /* Usa tu blanco para el párrafo */
+}
+
+.hero-section .btn-primary {
+    background-color: var(--color-primario) !important; /* Tu rojo para el botón */
+    border-color: var(--color-primario) !important;
+}
+
+.hero-section .btn-primary:hover {
+    background-color: darken(var(--color-primario), 10%) !important; /* Un poco más oscuro al pasar el mouse */
+    border-color: darken(var(--color-primario), 10%) !important;
+}
+
+
+/* INFO */
+.info-section {
+    position: relative; 
+    min-height: 80vh; 
+    background-color: var(--color-ebony);
+    background-image: url('../img/middle.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+
+}
+
+.info-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: -1;
+}
+
+.info-section .info-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.info-section .btn {
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 50px;
+}
+
+.info-section .btn:hover {
+    filter: brightness(1.1);
+}
+
+/*PAGINACION DE LOS PLANOS*/
+
+#planos {
+    margin-top: 5rem; 
+}
+
+.nav-pills .nav-link {
+    color: var(--color-texto-oscuro); /* Color del texto del botón inactivo */
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--color-primario); /* Color de fondo del botón activo (rojo) */
+    color: var(--color-texto-claro); /* Color del texto del botón activo (blanco) */
+}
+
+.nav-pills .nav-link:hover:not(.active) {
+    color: var(--color-primario); /* Color del texto del botón inactivo al pasar el mouse */
+}
+
+/*CONTACTO*/
+/* Estilos para la sección de Contacto */
+/* Estilos para la sección de Contacto */
+/* Estilos para la sección de Contacto (con fondo como en la sección Info) */
+.contacto-section {
+    position: relative;
+    min-height: 80vh;
+    background-color: var(--color-ebony);
+    background-image: url('../img/middle.jpg'); /* ¡Reemplaza con la URL de tu imagen de fondo! */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.contacto-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Color negro semi-transparente */
+    z-index: -1;
+}
+
+.contacto-section .contacto-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+/* El resto del estilo del formulario no cambia */
+.contacto-section .form-label {
+    font-weight: bold;
+    color: var(--color-texto-claro); /* Usamos texto claro ya que el fondo es oscuro */
+}
+
+.contacto-section .form-control {
+    border-radius: 50px;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.contacto-section .form-control:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 0.25rem rgba(210, 19, 24, 0.25);
+}
+
+.contacto-section .btn {
+    border-radius: 50px;
+    padding: 12px 40px;
+}
+
+/*FOOTER*/
+
+/* Estilos para el Footer */
+footer {
+    background-color: var(--color-texto-oscuro);
+    color: var(--color-texto-claro);
+}
+
+footer a {
+    color: var(--color-texto-claro);
+    text-decoration: none; /* Quitamos la línea de abajo de los enlaces */
+}
+
+footer a:hover {
+    color: var(--color-primario); /* Resaltamos los enlaces al pasar el mouse */
+}
