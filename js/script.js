@@ -23,18 +23,24 @@ document.addEventListener('DOMContentLoaded', function() {
 //modal de renders
 
 
+      // Este código se ejecuta cuando la página está completamente cargada
     document.addEventListener('DOMContentLoaded', function() {
+        // Obtenemos el elemento modal de la galería por su ID
         const imageModal = document.getElementById('imageModal');
+        
+        // Añadimos un "escucha" que se activa justo antes de que el modal se muestre
         imageModal.addEventListener('show.bs.modal', function (event) {
-            // El elemento que activó el modal (la miniatura)
+            
+            // event.relatedTarget es el enlace (<a>) que el usuario acaba de hacer clic
             const relatedTarget = event.relatedTarget;
-            // Obtenemos la URL de la imagen grande del atributo data
+
+            // Obtenemos la URL de la imagen grande del atributo 'data-image-url' de ese enlace
             const imageUrl = relatedTarget.getAttribute('data-image-url');
             
-            // Buscamos la imagen dentro del modal
+            // Seleccionamos la etiqueta <img> dentro del modal para cambiar su fuente
             const modalImage = imageModal.querySelector('#modalImage');
             
-            // Asignamos la URL a la imagen del modal
+            // Finalmente, asignamos la URL de la imagen grande a la fuente (src) del <img>
             modalImage.src = imageUrl;
         });
     });

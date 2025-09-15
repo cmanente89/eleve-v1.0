@@ -107,7 +107,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); 
+    /* background-color: rgba(0, 0, 0, 0.6);  */
     z-index: -1;
 }
 
@@ -124,6 +124,11 @@
 
 .info-section .btn:hover {
     filter: brightness(1.1);
+}
+
+.info-section .info-content h2,
+.info-section .info-content p {
+    color: var(--color-texto-oscuro); /* Cambiado de --color-texto-claro */
 }
 
 /*PAGINACION DE LOS PLANOS*/
@@ -169,7 +174,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Color negro semi-transparente */
+    /*background-color: rgba(0, 0, 0, 0.6); /* Color negro semi-transparente */
     z-index: -1;
 }
 
@@ -198,6 +203,12 @@
 .contacto-section .btn {
     border-radius: 50px;
     padding: 12px 40px;
+}
+
+.contacto-section h2,
+.contacto-section p,
+.contacto-section .form-label {
+    color: var(--color-texto-oscuro);
 }
 
 /*FOOTER*/
