@@ -189,31 +189,29 @@
                             Déjanos tus datos y un asesor se comunicará contigo para darte
                             más información sobre el proyecto.
                         </p>
-                        <form id="contactForm" action="https://formspree.io/f/xpwjerbn" method="POST">
-                            <div class="mb-3">
-                                <label for="nombre" class="form-label">Nombre completo</label>
-                                <input type="text" class="form-control border border-secondary" id="nombre" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Correo electrónico</label>
-                                <input type="email" class="form-control border border-secondary" id="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="telefono" class="form-label">Número de teléfono</label>
-                                <input type="tel" class="form-control border border-secondary" id="telefono" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="mensaje" class="form-label">Mensaje o consulta</label>
-                                <textarea class="form-control border border-secondary" id="mensaje" rows="5"
-                                    required></textarea>
-                            </div>
-                            <div class="text-center mt-4">
-                                <button type="submit" class="btn btn-lg fw-bold"
-                                    style="background-color: var(--color-primario); color: var(--color-texto-claro);">
-                                    Enviar Mensaje
-                                </button>
-                            </div>
-                        </form>
+                       <form id="contactForm" action="https://formspree.io/f/xpwjerbn" method="POST">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre completo</label>
+        <input type="text" class="form-control border border-secondary" id="nombre" name="nombre" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control border border-secondary" id="email" name="email" required>
+    </div>
+    <div class="mb-3">
+        <label for="telefono" class="form-label">Número de teléfono</label>
+        <input type="tel" class="form-control border border-secondary" id="telefono" name="telefono" required>
+    </div>
+    <div class="mb-3">
+        <label for="mensaje" class="form-label">Mensaje o consulta</label>
+        <textarea class="form-control border border-secondary" id="mensaje" name="mensaje" rows="5" required></textarea>
+    </div>
+    <div class="text-center mt-4">
+        <button type="submit" class="btn btn-lg fw-bold" style="background-color: var(--color-primario); color: var(--color-texto-claro);">
+            Enviar Mensaje
+        </button>
+    </div>
+</form>
                     </div>
                 </div>
                 <div class="col-lg-6">
