@@ -4,23 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eleve Departamentos</title>
+    <title>Elevé Departamentos</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-ie2yUa/0mX1zT2mX413E/T7p8q1uD2V6z8s9L+wD2yU/vC6a8R2aQ6C4x4q4B4D2C/4+7P8o3M4w..."
+        integrity="sha512-ie2yUa/0mX1zT2mX413E/T7p8q1uD2V6z8s9L+wD2yU/vC6a8R2aQ6C4x4q4B4D2C/4+7P8o3M4w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Space+Grotesk:wght@600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
     <!-- NAVBAR -->
-
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Elevé</a>
+            <a class="navbar-brand fw-bold" href="#">Elevé</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,26 +43,27 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#renders">Renders</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#contacto">Contacto</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-
     <header id="hero-section" class="hero-section text-center d-flex align-items-center justify-content-center">
         <div class="hero-content text-white" data-aos="fade-up">
-            <h1 class="display-3 fw-bold">El Futuro es Ahora</h1>
-            <p class="lead">Descubre un espacio único diseñado para ti.</p>
-            <a href="#info" class="btn btn-primary btn-lg mt-3">Saber Más</a>
+            <h1 class="display-3 fw-bold">Lorem Impsum Lorem ipsum dolor sit amet</h1>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nam ea ipsa nemo.</p>
+            <!-- <a href="#info" class="btn btn-primary btn-lg mt-3">Saber Más</a> -->
         </div>
+
+        <!-- Imagen flotante Pop Art -->
+        <img src="./img/chica-wow-2.png" alt="Ilustración Pop Art" class="hero-popart">
     </header>
 
     <!-- SECTION INFO -->
-
     <section id="info" class="info-section py-5 d-flex align-items-center">
         <div class="container">
             <div class="row">
@@ -74,8 +80,8 @@
                             cada detalle ha sido cuidadosamente seleccionado para brindarte
                             una experiencia de vida incomparable.
                         </p>
-                        <a href="#contacto" class="btn btn-lg mt-4"
-                            style="background-color: var(--color-secundario); color: var(--color-texto-claro);">Contáctanos</a>
+                        <!-- <a href="#contacto" class="btn btn-lg mt-4"
+                            style="background-color: var(--color-secundario); color: var(--color-texto-claro);">Contáctanos</a> -->
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -85,10 +91,9 @@
     </section>
 
     <!-- PLANOS -->
-
     <section id="planos" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">Planos y Distribuciones</h2>
+            <!-- <h2 class="text-center mb-5">Planos y Distribuciones</h2> -->
 
             <ul class="nav nav-pills justify-content-center mb-4" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -131,10 +136,9 @@
     </section>
 
     <!-- RENDERS -->
-
     <section id="renders" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Renders y Vistas del Proyecto</h2>
+            <!-- <h2 class="text-center mb-5">Renders y Vistas del Proyecto</h2> -->
             <div class="row">
                 <div class="col-6 col-md-4 col-lg-4 mb-4">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/1.jpg">
@@ -176,8 +180,6 @@
         </div>
     </section>
 
-
-
     <!-- CONTACTO
     <section id="contacto" class="contacto-section py-5 d-flex align-items-center">
         <div class="container">
@@ -189,29 +191,29 @@
                             Déjanos tus datos y un asesor se comunicará contigo para darte
                             más información sobre el proyecto.
                         </p>
-                       <form id="contactForm" action="https://formspree.io/f/xpwjerbn" method="POST">
-    <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre completo</label>
-        <input type="text" class="form-control border border-secondary" id="nombre" name="nombre" required>
-    </div>
-    <div class="mb-3">
-        <label for="email" class="form-label">Correo electrónico</label>
-        <input type="email" class="form-control border border-secondary" id="email" name="email" required>
-    </div>
-    <div class="mb-3">
-        <label for="telefono" class="form-label">Número de teléfono</label>
-        <input type="tel" class="form-control border border-secondary" id="telefono" name="telefono" required>
-    </div>
-    <div class="mb-3">
-        <label for="mensaje" class="form-label">Mensaje o consulta</label>
-        <textarea class="form-control border border-secondary" id="mensaje" name="mensaje" rows="5" required></textarea>
-    </div>
-    <div class="text-center mt-4">
-        <button type="submit" class="btn btn-lg fw-bold" style="background-color: var(--color-primario); color: var(--color-texto-claro);">
-            Enviar Mensaje
-        </button>
-    </div>
-</form>
+                        <form id="contactForm" action="https://formspree.io/f/xpwjerbn" method="POST">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre completo</label>
+                                <input type="text" class="form-control border border-secondary" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo electrónico</label>
+                                <input type="email" class="form-control border border-secondary" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Número de teléfono</label>
+                                <input type="tel" class="form-control border border-secondary" id="telefono" name="telefono" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensaje" class="form-label">Mensaje o consulta</label>
+                                <textarea class="form-control border border-secondary" id="mensaje" name="mensaje" rows="5" required></textarea>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-lg fw-bold" style="background-color: var(--color-primario); color: var(--color-texto-claro);">
+                                    Enviar Mensaje
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -221,12 +223,11 @@
     </section> -->
 
     <!-- FOOTER -->
-
     <footer class="text-center text-lg-start pt-4" style="background-color: var(--color-texto-oscuro);">
         <div class="container pb-0">
             <div class="row">
                 <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h6 class="text-uppercase mb-4 fw-bold">Mi Proyecto</h6>
+                    <h6 class="text-uppercase mb-4 fw-bold">Elevé</h6>
                     <p>
                         Construyendo sueños, un espacio a la vez. Tu nuevo hogar te espera.
                     </p>
@@ -236,13 +237,9 @@
 
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h6 class="text-uppercase mb-4 fw-bold">Síguenos</h6>
-                    <!-- <a class="btn btn-outline-light btn-floating m-1" href="#" role="button">
-                        <i class="fab fa-facebook-f"></i> Facebook
-                    </a> -->
-                    <!-- <a class="btn btn-outline-light btn-floating m-1" href="#" role="button">
-                        <i class="fab fa-twitter"></i> Twitter
-                    </a> -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/elevedepartamentos/" target="_blank" rel="noopener noreferrer" role="button">
+                    <a class="btn btn-outline-light btn-floating m-1"
+                        href="https://www.instagram.com/elevedepartamentos/" target="_blank" rel="noopener noreferrer"
+                        role="button">
                         <i class="fab fa-instagram"></i> Instagram
                     </a>
                 </div>
@@ -255,7 +252,7 @@
                         <i class="fas fa-home me-3"></i> [Dirección]
                     </p>
                     <p>
-                        <i class="fas fa-envelope me-3"></i> info@mi-proyecto.com
+                        <i class="fas fa-envelope me-3"></i> info@elevedepartamentos.com
                     </p>
                     <p>
                         <i class="fas fa-phone me-3"></i> +xx xx xx xxx xx
@@ -263,21 +260,15 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div class="text-center p-3 mt-4" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2024 Copyright:
-            <a class="text-white" href="#">MiProyecto.com</a>
-        </div> -->
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
- <script src="./js/script.js"></script>
+    <script src="./js/script.js"></script>
 
     <!-- RENDER MODAL -->
-
     <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content bg-dark">
@@ -289,7 +280,6 @@
             </div>
         </div>
     </div>
-
 
 </body>
 
