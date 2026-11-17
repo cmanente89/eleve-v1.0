@@ -49,7 +49,7 @@
     position: relative; /* Necesario para que el contenido se posicione bien */
     height: 100vh; /* Ocupa el 100% del alto de la ventana */
     overflow: hidden; /* Asegura que la imagen no se desborde */
-    background-image: url('../img/hero.png'); /* ¡Reemplaza con la URL de tu imagen! */
+    background-image: url('../img/2.jpg'); /* ¡Reemplaza con la URL de tu imagen! */
     background-size: cover; /* La imagen cubre todo el espacio */
     background-position: center center; /* Centra la imagen */
     background-attachment: fixed; /* ¡Este es el truco para el parallax! */
