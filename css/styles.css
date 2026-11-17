@@ -24,6 +24,27 @@ h1, h2, h3, .navbar-brand {
   font-family: var(--fuente-titulos);
 }
 
+/* DETALLE ARQUITECTÓNICO PARA TÍTULOS DE SECCIÓN (Planos y Renders) */
+#planos h2,
+#renders h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.75rem;
+}
+
+#planos h2::after,
+#renders h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 3px;
+  background-color: var(--color-primario);
+  border-radius: 2px;
+}
+
 /* NAVBAR */
 .navbar {
   position: sticky;
@@ -32,7 +53,8 @@ h1, h2, h3, .navbar-brand {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   background-color: var(--color-fondo-claro);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid var(--color-primario); /* Línea roja sutil en la base del menú */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .navbar .navbar-brand {
@@ -40,6 +62,7 @@ h1, h2, h3, .navbar-brand {
 }
 
 .navbar .nav-link {
+  position: relative;
   color: var(--color-texto-oscuro) !important;
   font-weight: 500;
   padding-top: 0.5rem;
@@ -68,7 +91,6 @@ h1, h2, h3, .navbar-brand {
   text-align: left !important;
 }
 
-/* Degradado sutil solo en el margen izquierdo para dar contraste sin tocar el edificio */
 #hero-section::before {
   content: "";
   position: absolute;
@@ -204,19 +226,12 @@ h1, h2, h3, .navbar-brand {
   z-index: 1;
 }
 
-.info-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
 .info-section .info-content {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  background-color: rgba(250, 247, 242, 0.78); /* Respaldo claro sutil para mejorar lectura */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-left: 4px solid var(--color-primario); /* Mismo acento rojo que en el Hero */
+  border-radius: 0 10px 10px 0;
 }
 
 .info-section .btn {
@@ -226,7 +241,7 @@ h1, h2, h3, .navbar-brand {
 }
 
 .info-section .btn:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.05);
 }
 
 .info-section .info-content h2,
@@ -239,8 +254,21 @@ h1, h2, h3, .navbar-brand {
   margin-top: 5rem;
 }
 
+#planos .container,
+#renders .container {
+  text-align: center; /* Permite centrar el h2 con su línea roja inferior */
+}
+
+#planos .tab-content,
+#renders .row {
+  text-align: left;
+}
+
 .nav-pills .nav-link {
   color: var(--color-texto-oscuro);
+  border-bottom: 2px solid transparent;
+  border-radius: 50px;
+  margin: 0 0.25rem;
 }
 
 .nav-pills .nav-link.active {
@@ -250,6 +278,19 @@ h1, h2, h3, .navbar-brand {
 
 .nav-pills .nav-link:hover:not(.active) {
   color: var(--color-primario);
+  border-color: rgba(210, 19, 24, 0.25);
+}
+
+/* RENDERS - DETALLE SUTIL AL HOVER */
+.gallery-item {
+  border-bottom: 3px solid transparent;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  border-bottom-color: var(--color-primario);
+  box-shadow: 0 8px 20px rgba(27, 26, 21, 0.15) !important;
 }
 
 /* CONTACTO */
@@ -266,23 +307,17 @@ h1, h2, h3, .navbar-brand {
   z-index: 1;
 }
 
-.contacto-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
 .contacto-section .contacto-content {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  background-color: rgba(250, 247, 242, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-left: 4px solid var(--color-primario);
+  border-radius: 0 10px 10px 0;
 }
 
 .contacto-section .form-label {
   font-weight: bold;
+  color: var(--color-texto-oscuro);
 }
 
 .contacto-section .form-control {
@@ -302,15 +337,106 @@ h1, h2, h3, .navbar-brand {
 }
 
 .contacto-section h2,
-.contacto-section p,
-.contacto-section .form-label {
+.contacto-section p {
   color: var(--color-texto-oscuro);
+}
+
+/* NOSOTROS / ABOUT ARQUITECTO */
+.about-section {
+  background-color: var(--color-fondo-claro);
+  color: var(--color-texto-oscuro);
+  overflow: hidden;
+  border-top: 1px solid rgba(27, 26, 21, 0.08);
+}
+
+.about-images-wrapper {
+  position: relative;
+  padding-bottom: 3rem;
+  padding-right: 2.5rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.about-img-main {
+  width: 82%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.about-img-secondary {
+  width: 52%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  border: 6px solid var(--color-fondo-claro);
+}
+
+.about-accent-box {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  width: 110px;
+  height: 110px;
+  border-top: 4px solid var(--color-primario);
+  border-left: 4px solid var(--color-primario);
+  border-radius: 8px 0 0 0;
+  z-index: 1;
+}
+
+.about-eyebrow {
+  display: inline-block;
+  font-family: var(--fuente-titulos);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-primario);
+  margin-bottom: 0.5rem;
+}
+
+.about-text-content h2 {
+  color: var(--color-texto-oscuro);
+  line-height: 1.15;
+}
+
+.about-signature {
+  border-left: 4px solid var(--color-primario);
+  padding-left: 1rem;
+}
+
+.about-images-wrapper.single-photo {
+  padding-bottom: 0;
+  padding-right: 0;
+}
+
+.about-images-wrapper.single-photo .about-img-main {
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .about-images-wrapper {
+    padding-bottom: 2rem;
+    padding-right: 1rem;
+  }
+
+  .about-img-secondary {
+    width: 48%;
+    border-width: 4px;
+  }
 }
 
 /* FOOTER */
 footer {
   background-color: var(--color-texto-oscuro);
   color: var(--color-texto-claro);
+  border-top: 3px solid var(--color-primario); /* Remate rojo antes del cierre oscuro */
 }
 
 footer a {
