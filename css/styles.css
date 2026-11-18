@@ -267,26 +267,24 @@ h1, h2, h3, .navbar-brand {
   color: var(--color-texto-oscuro);
 }
 
-/* PAGINACION DE LOS PLANOS */
+/* PAGINACION Y DESPLIEGUE DE LOS PLANOS */
 #planos {
   margin-top: 5rem;
+  border-top: 1px solid rgba(27, 26, 21, 0.08);
 }
 
-#planos .container,
-#renders .container {
-  text-align: center; /* Permite centrar el h2 con su línea roja inferior */
-}
-
-#planos .tab-content,
-#renders .row {
-  text-align: left;
+#planos .nav-pills {
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid rgba(210, 19, 24, 0.2); /* Línea guía roja sutil bajo los botones */
+  display: inline-flex;
 }
 
 .nav-pills .nav-link {
   color: var(--color-texto-oscuro);
-  border-bottom: 2px solid transparent;
   border-radius: 50px;
   margin: 0 0.25rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
 }
 
 .nav-pills .nav-link.active {
@@ -296,19 +294,40 @@ h1, h2, h3, .navbar-brand {
 
 .nav-pills .nav-link:hover:not(.active) {
   color: var(--color-primario);
-  border-color: rgba(210, 19, 24, 0.25);
+  background-color: rgba(210, 19, 24, 0.06);
 }
 
-/* RENDERS - DETALLE SUTIL AL HOVER */
+/* Borde arquitectónico rojo en la imagen del plano desplegado */
+#planos .tab-pane img {
+  border-left: 4px solid var(--color-primario);
+  border-bottom: 3px solid var(--color-primario);
+  border-radius: 0 8px 8px 0 !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* RENDERS - COHERENCIA CON LÍNEAS ROJAS */
+#renders {
+  border-top: 1px solid rgba(27, 26, 21, 0.08);
+}
+
 .gallery-item {
-  border-bottom: 3px solid transparent;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  border-bottom: 3px solid var(--color-primario); /* Línea roja siempre presente en la base */
+  border-radius: 6px 6px 2px 2px !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
 
 .gallery-item:hover {
-  transform: translateY(-4px);
-  border-bottom-color: var(--color-primario);
-  box-shadow: 0 8px 20px rgba(27, 26, 21, 0.15) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(27, 26, 21, 0.18) !important;
+  filter: brightness(1.03);
+}
+
+/* Detalle rojo en el modal cuando se abre un render */
+#imageModal .modal-content {
+  border: none;
+  border-top: 4px solid var(--color-primario);
+  border-bottom: 4px solid var(--color-primario);
+  overflow: hidden;
 }
 
 /* CONTACTO */
@@ -464,4 +483,30 @@ footer a {
 
 footer a:hover {
   color: var(--color-primario);
+}
+
+/* Ícono de Instagram en el Footer */
+/* Controla el tamaño del círculo exterior */
+.social-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;  /* Tamaño del círculo */
+  height: 48px;
+  /* border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 254, 0.35); */
+  color: var(--color-texto-claro);
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+/* Controla el tamaño del ícono de Instagram por dentro */
+.social-icon-link svg {
+  width: 70px;  /* Cambiá este valor para agrandar o achicar el logo */
+  height: 70px;
+}
+
+.social-icon-link:hover {
+  color: var(--color-primario);
+  border-color: var(--color-primario);
+  transform: translateY(-3px);
 }
