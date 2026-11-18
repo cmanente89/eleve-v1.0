@@ -72,6 +72,24 @@ h1, h2, h3, .navbar-brand {
 .navbar .nav-link:hover {
   color: var(--color-primario) !important;
 }
+.navbar .navbar-brand {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 32px; /* Proporcionado a la altura de los enlaces del nav */
+  width: auto;
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+/* Convierte el logo oscuro al rojo #D21318 de tu paleta al hacer hover */
+.navbar .navbar-brand:hover .navbar-logo {
+  filter: brightness(0) saturate(100%) invert(14%) sepia(93%) saturate(5832%) hue-rotate(353deg) brightness(86%) contrast(103%);
+  transform: scale(1.03);
+}
 
 /* HERO - ESTÉTICA LIMPIA Y ARQUITECTÓNICA */
 #hero-section {
