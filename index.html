@@ -9,9 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-ie2yUa/0mX1zT2mX413E/T7p8q1uD2V6z8s9L+wD2yU/vC6a8R2aQ6C4x4q4B4D2C/4+7P8o3M4w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css?v=9">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +25,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="./img/eleve_logo.png" alt="Elevé Departamentos" class="navbar-logo">
+                <img src="./img/eleve_logo.png" alt="Elevé Departamentos" height="32" class="navbar-logo">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -38,6 +37,9 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#info">Información</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#caracteristicas">Proyecto</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#planos">Planos</a>
@@ -53,274 +55,307 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header id="hero-section" class="hero-section text-center d-flex align-items-center justify-content-center">
-        <div class="hero-content text-white" data-aos="fade-up">
-            <h1 class="display-3 fw-bold">Viví más alto. Viví mejor.</h1>
-            <p class="lead">Departamentos que elevan tu forma de vivir en Santa Fe</p>
-            <!-- <a href="#info" class="btn btn-primary btn-lg mt-3">Saber Más</a> -->
-        </div>
+    <!-- CONTENEDOR DE DIAPOSITIVAS FULLPAGE -->
+    <div id="fullpage-wrapper">
 
-        <!-- Imagen flotante Pop Art -->
-        <!-- <img src="./img/chica-wow-2.png" alt="Ilustración Pop Art" class="hero-popart"> -->
-    </header>
-
-    <!-- SECTION INFO -->
-    <section id="info" class="info-section py-5 d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="info-content text-white p-4">
-                        <h2 class="display-4 fw-bold mb-4">Un Lugar para Crear Historias</h2>
-                        <p class="lead mb-4">
-                            Un lugar pensado para tu vida.En Elevé cada espacio fue diseñado para que la luz, el aire y
-                            el silencio trabajen a tu favor.
-                        </p>
-                        <p>
-                            Distribuciones inteligentes, materiales nobles y terminaciones de alta calidad que se notan
-                            en el día a día. No es solo un departamento. Es el lugar donde vas a querer estar.
-                        </p>
-                        <!-- <a href="#contacto" class="btn btn-lg mt-4"
-                            style="background-color: var(--color-secundario); color: var(--color-texto-claro);">Contáctanos</a> -->
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                </div>
+        <!-- HERO SECTION -->
+        <header id="hero-section" class="hero-section text-center d-flex align-items-center justify-content-center">
+            <div class="hero-content text-white" data-aos="fade-up">
+                <h1 class="display-3 fw-bold">Viví más alto. Viví mejor.</h1>
+                <p class="lead">Departamentos que elevan tu forma de vivir en Santa Fe</p>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- PLANOS -->
-    <section id="planos" class="py-5 bg-light">
-        <div class="container">
-            <!-- <h2 class="text-center mb-5">Planos y Distribuciones</h2> -->
-
-            <ul class="nav nav-pills justify-content-center mb-4" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pills-plano1-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-plano1" type="button" role="tab" aria-controls="pills-plano1"
-                        aria-selected="true">Semipisos</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-plano2-tab" data-bs-toggle="pill" data-bs-target="#pills-plano2"
-                        type="button" role="tab" aria-controls="pills-plano2" aria-selected="false">Dúplex</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-plano3-tab" data-bs-toggle="pill" data-bs-target="#pills-plano3"
-                        type="button" role="tab" aria-controls="pills-plano3" aria-selected="false">Dos
-                        ambientes</button>
-                </li>
-            </ul>
-
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-plano1" role="tabpanel"
-                    aria-labelledby="pills-plano1-tab">
-                    <div class="text-center">
-                        <img src="./img/carousel-1.jpg" class="img-fluid rounded shadow" alt="Plano 1">
+        <!-- SECTION INFO -->
+        <section id="info" class="info-section py-5 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="info-content text-white p-4">
+                            <h2 class="display-4 fw-bold mb-4">Un Lugar para Crear Historias</h2>
+                            <p class="lead mb-4">
+                                Un lugar pensado para tu vida. En Elevé cada espacio fue diseñado para que la luz, el aire y
+                                el silencio trabajen a tu favor.
+                            </p>
+                            <p>
+                                Distribuciones inteligentes, materiales nobles y terminaciones de alta calidad que se notan
+                                en el día a día. No es solo un departamento. Es el lugar donde vas a querer estar.
+                            </p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="tab-pane fade" id="pills-plano2" role="tabpanel" aria-labelledby="pills-plano2-tab">
-                    <div class="text-center">
-                        <img src="./img/carousel-2.jpg" class="img-fluid rounded shadow" alt="Plano 2">
-                    </div>
-                </div>
-
-                <div class="tab-pane fade" id="pills-plano3" role="tabpanel" aria-labelledby="pills-plano3-tab">
-                    <div class="text-center">
-                        <img src="./img/carousel-3.jpg" class="img-fluid rounded shadow" alt="Plano 3">
+                    <div class="col-lg-6">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- RENDERS -->
-    <section id="renders" class="py-5">
-        <div class="container">
-            <!-- <h2 class="text-center mb-5">Renders y Vistas del Proyecto</h2> -->
-            <div class="row">
-                <div class="col-6 col-md-4 col-lg-4 mb-4">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/1.jpg">
-                        <img src="./img/thumbnail-1.jpg" class="img-fluid rounded shadow-sm gallery-item"
-                            alt="Render 1">
-                    </a>
-                </div>
-                <div class="col-6 col-md-4 col-lg-4 mb-4">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/2.jpg">
-                        <img src="./img/thumbnail-2.jpg" class="img-fluid rounded shadow-sm gallery-item"
-                            alt="Render 2">
-                    </a>
-                </div>
-                <div class="col-6 col-md-4 col-lg-4 mb-4">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/3.jpg">
-                        <img src="./img/thumbnail-3.jpg" class="img-fluid rounded shadow-sm gallery-item"
-                            alt="Render 3">
-                    </a>
-                </div>
-                <div class="col-6 col-md-4 col-lg-4 mb-4">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/4.jpg">
-                        <img src="./img/thumbnail-4.jpg" class="img-fluid rounded shadow-sm gallery-item"
-                            alt="Render 4">
-                    </a>
-                </div>
-                <div class="col-6 col-md-4 col-lg-4 mb-4">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/5.jpeg">
-                        <img src="./img/thumbnail-5.jpeg" class="img-fluid rounded shadow-sm gallery-item"
-                            alt="Render 5">
-                    </a>
-                </div>
-                <div class="col-6 col-md-4 col-lg-4 mb-4">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/6.jpeg">
-                        <img src="./img/thumbnail-6.jpeg" class="img-fluid rounded shadow-sm gallery-item"
-                            alt="Render 6">
-                    </a>
+        <!-- ESPECIFICACIONES / CIFRAS DEL PROYECTO -->
+        <section id="caracteristicas" class="specs-section py-5">
+            <div class="container py-lg-4">
+                <div class="row align-items-center g-5">
+
+                    <!-- Columna Izquierda: Imagen del edificio + Tarjeta de Amenities -->
+                    <div class="col-lg-5">
+                        <div class="specs-visual-wrapper">
+                            <img src="./img/1.jpg" alt="Frente Edificio Elevé" class="specs-building-img shadow">
+
+                            <!-- Destacado de Amenities -->
+                            <div class="specs-amenities-card shadow">
+                                <span class="specs-amenities-badge">Amenities en Terraza</span>
+                                <h3 class="h5 fw-bold mb-1">Estar, comedor y asador</h3>
+                                <p class="small mb-0">Espacio común en altura diseñado para disfrutar vistas abiertas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Grilla animada de unidades y niveles -->
+                    <div class="col-lg-7">
+                        <div class="mb-4">
+                            <span class="about-eyebrow">El Proyecto en Números</span>
+                            <h2 class="display-5 fw-bold">Escala y distribución inteligente</h2>
+                        </div>
+
+                        <div class="row g-3 g-md-4">
+                            <!-- Dato 1 -->
+                            <div class="col-6 col-md-4">
+                                <div class="spec-card" data-delay="0">
+                                    <span class="spec-number" data-target="8">0</span>
+                                    <span class="spec-label">Niveles</span>
+                                </div>
+                            </div>
+
+                            <!-- Dato 2 -->
+                            <div class="col-6 col-md-4">
+                                <div class="spec-card" data-delay="100">
+                                    <span class="spec-number" data-target="9">0</span>
+                                    <span class="spec-label">Dúplex</span>
+                                </div>
+                            </div>
+
+                            <!-- Dato 3 -->
+                            <div class="col-6 col-md-4">
+                                <div class="spec-card" data-delay="200">
+                                    <span class="spec-number" data-target="4">0</span>
+                                    <span class="spec-label">Semipisos de 2 dormitorios</span>
+                                </div>
+                            </div>
+
+                            <!-- Dato 4 -->
+                            <div class="col-6 col-md-4">
+                                <div class="spec-card" data-delay="300">
+                                    <span class="spec-number" data-target="12">0</span>
+                                    <span class="spec-label">Departamentos de 1 dormitorio</span>
+                                </div>
+                            </div>
+
+                            <!-- Dato 5 -->
+                            <div class="col-6 col-md-4">
+                                <div class="spec-card" data-delay="400">
+                                    <span class="spec-number" data-target="14">0</span>
+                                    <span class="spec-label">Cocheras</span>
+                                </div>
+                            </div>
+
+                            <!-- Dato 6 -->
+                            <div class="col-6 col-md-4">
+                                <div class="spec-card" data-delay="500">
+                                    <span class="spec-number" data-target="2">0</span>
+                                    <span class="spec-label">Ascensores</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- NOSOTROS / EL ARQUITECTO -->
-    <section id="nosotros" class="about-section py-5">
-        <div class="container py-lg-4">
-            <div class="row align-items-center g-5">
+        <!-- PLANOS -->
+        <section id="planos" class="py-5 bg-light">
+            <div class="container">
+                <ul class="nav nav-pills justify-content-center mb-4" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-plano1-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-plano1" type="button" role="tab" aria-controls="pills-plano1"
+                            aria-selected="true">Semipisos</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-plano2-tab" data-bs-toggle="pill" data-bs-target="#pills-plano2"
+                            type="button" role="tab" aria-controls="pills-plano2" aria-selected="false">Dúplex</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-plano3-tab" data-bs-toggle="pill" data-bs-target="#pills-plano3"
+                            type="button" role="tab" aria-controls="pills-plano3" aria-selected="false">Dos
+                            ambientes</button>
+                    </li>
+                </ul>
 
-                <!-- Columna de Fotos (Composición editorial de 2 imágenes) -->
-                <div class="col-lg-6">
-                    <div class="about-images-wrapper">
-                        <!-- Foto principal del arquitecto -->
-                        <img src="./img/about-3.jpeg" alt="Arquitecto del proyecto Elevé" class="about-img-main shadow">
-
-                        <!-- Foto secundaria (en obra o estudio) -->
-                        <img src="./img/about-2.jpeg" alt="Estudio y dirección de obra"
-                            class="about-img-secondary shadow">
-
-                        <!-- Detalle geométrico rojo de tu paleta -->
-                        <div class="about-accent-box"></div>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-plano1" role="tabpanel"
+                        aria-labelledby="pills-plano1-tab">
+                        <div class="text-center">
+                            <img src="./img/carousel-1.jpg" class="img-fluid rounded shadow" alt="Plano 1">
+                        </div>
                     </div>
-                </div>
 
-                <!-- Columna de Texto -->
-                <div class="col-lg-6">
-                    <div class="about-text-content">
-                        <span class="about-eyebrow">Dirección y Proyecto</span>
-                        <h2 class="display-5 fw-bold mb-4">Arquitectura que se habita, no solo se mira.</h2>
+                    <div class="tab-pane fade" id="pills-plano2" role="tabpanel" aria-labelledby="pills-plano2-tab">
+                        <div class="text-center">
+                            <img src="./img/carousel-2.jpg" class="img-fluid rounded shadow" alt="Plano 2">
+                        </div>
+                    </div>
 
-                        <p class="lead mb-3">
-                            Detrás de <strong>Elevé</strong> hay una decisión clara: construir espacios sólidos,
-                            luminosos y funcionales, sin perder la calidez de lo cotidiano.
-                        </p>
-
-                        <p class="mb-4 text-muted">
-                            Con trayectoria en obras residenciales contemporáneas en Santa Fe, nuestro estudio trabaja
-                            cada proyecto desde el detalle: ventilación cruzada, orientación, materiales honestos y una
-                            relación directa con el entorno urbano.
-                        </p>
-
-                        <!-- Datos clave / Matrícula o trayectoria -->
-                        <div class="about-signature pt-3">
-                            <p class="mb-0 fw-bold fs-5">Arq. Andrés Peña</p>
-                            <small class="text-muted">Director de Proyecto &bull; Mat. Prof. N° [XXXX]</small>
+                    <div class="tab-pane fade" id="pills-plano3" role="tabpanel" aria-labelledby="pills-plano3-tab">
+                        <div class="text-center">
+                            <img src="./img/carousel-3.jpg" class="img-fluid rounded shadow" alt="Plano 3">
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CONTACTO
-    <section id="contacto" class="contacto-section py-5 d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="contacto-content text-white p-4">
-                        <h2 class="display-4 fw-bold mb-4">Ponte en Contacto</h2>
-                        <p class="lead mb-4">
-                            Déjanos tus datos y un asesor se comunicará contigo para darte
-                            más información sobre el proyecto.
-                        </p>
-                        <form id="contactForm" action="https://formspree.io/f/xpwjerbn" method="POST">
-                            <div class="mb-3">
-                                <label for="nombre" class="form-label">Nombre completo</label>
-                                <input type="text" class="form-control border border-secondary" id="nombre" name="nombre" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Correo electrónico</label>
-                                <input type="email" class="form-control border border-secondary" id="email" name="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="telefono" class="form-label">Número de teléfono</label>
-                                <input type="tel" class="form-control border border-secondary" id="telefono" name="telefono" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="mensaje" class="form-label">Mensaje o consulta</label>
-                                <textarea class="form-control border border-secondary" id="mensaje" name="mensaje" rows="5" required></textarea>
-                            </div>
-                            <div class="text-center mt-4">
-                                <button type="submit" class="btn btn-lg fw-bold" style="background-color: var(--color-primario); color: var(--color-texto-claro);">
-                                    Enviar Mensaje
-                                </button>
-                            </div>
-                        </form>
+        <!-- RENDERS -->
+        <section id="renders" class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 col-md-4 col-lg-4 mb-4">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/1.jpg">
+                            <img src="./img/thumbnail-1.jpg" class="img-fluid rounded shadow-sm gallery-item"
+                                alt="Render 1">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-4 mb-4">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/2.jpg">
+                            <img src="./img/thumbnail-2.jpg" class="img-fluid rounded shadow-sm gallery-item"
+                                alt="Render 2">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-4 mb-4">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/3.jpg">
+                            <img src="./img/thumbnail-3.jpg" class="img-fluid rounded shadow-sm gallery-item"
+                                alt="Render 3">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-4 mb-4">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/4.jpg">
+                            <img src="./img/thumbnail-4.jpg" class="img-fluid rounded shadow-sm gallery-item"
+                                alt="Render 4">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-4 mb-4">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/5.jpeg">
+                            <img src="./img/thumbnail-5.jpeg" class="img-fluid rounded shadow-sm gallery-item"
+                                alt="Render 5">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-4 mb-4">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-url="./img/6.jpeg">
+                            <img src="./img/thumbnail-6.jpeg" class="img-fluid rounded shadow-sm gallery-item"
+                                alt="Render 6">
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-6">
+            </div>
+        </section>
+
+        <!-- NOSOTROS / EL ARQUITECTO -->
+        <section id="nosotros" class="about-section py-5">
+            <div class="container py-lg-4">
+                <div class="row align-items-center g-5">
+
+                    <!-- Columna de Fotos (Composición editorial de 2 imágenes) -->
+                    <div class="col-lg-6">
+                        <div class="about-images-wrapper">
+                            <!-- Foto principal del arquitecto -->
+                            <img src="./img/about-3.jpeg" alt="Arquitecto del proyecto Elevé" class="about-img-main shadow">
+
+                            <!-- Foto secundaria (en obra o estudio) -->
+                            <img src="./img/about-2.jpeg" alt="Estudio y dirección de obra"
+                                class="about-img-secondary shadow">
+
+                            <!-- Detalle geométrico rojo de tu paleta -->
+                            <div class="about-accent-box"></div>
+                        </div>
+                    </div>
+
+                    <!-- Columna de Texto -->
+                    <div class="col-lg-6">
+                        <div class="about-text-content">
+                            <span class="about-eyebrow">Dirección y Proyecto</span>
+                            <h2 class="display-5 fw-bold mb-4">Arquitectura que se habita, no solo se mira.</h2>
+
+                            <p class="lead mb-3">
+                                Detrás de <strong>Elevé</strong> hay una decisión clara: construir espacios sólidos,
+                                luminosos y funcionales, sin perder la calidez de lo cotidiano.
+                            </p>
+
+                            <p class="mb-4 text-muted">
+                                Con trayectoria en obras residenciales contemporáneas en Santa Fe, nuestro estudio trabaja
+                                cada proyecto desde el detalle: ventilación cruzada, orientación, materiales honestos y una
+                                relación directa con el entorno urbano.
+                            </p>
+
+                            <!-- Tarjeta de firma estilo Hero -->
+                            <div class="about-signature">
+                                <p class="mb-0 fw-bold fs-5">Arq. Andrés Peña</p>
+                                <small>Director de Proyecto &bull; Mat. Prof. N° [XXXX]</small>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </section> -->
+        </section>
 
-    <!-- FOOTER -->
-    <footer class="text-center text-lg-start pt-4" style="background-color: var(--color-texto-oscuro);">
-        <div class="container pb-0">
-            <div class="row">
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h6 class="text-uppercase mb-4 fw-bold">Elevé</h6>
-                    <p>
-                        Viví más alto. Viví mejor.
-                    </p>
-                </div>
+        <!-- FOOTER -->
+        <footer class="text-center text-lg-start pt-4" style="background-color: var(--color-texto-oscuro);">
+            <div class="container pb-0">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 fw-bold">Elevé</h6>
+                        <p>
+                            Viví más alto. Viví mejor.
+                        </p>
+                    </div>
 
-                <hr class="w-100 clearfix d-md-none" />
+                    <hr class="w-100 clearfix d-md-none" />
 
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                    <!-- <h6 class="text-uppercase mb-4 fw-bold">Síguenos</h6> -->
-                    <a class="social-icon-link" href="https://www.instagram.com/elevedepartamentos/" target="_blank"
-                        rel="noopener noreferrer" aria-label="Instagram de Elevé Departamentos">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-                            viewBox="0 0 16 16">
-                            <path
-                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                        </svg>
-                    </a>
-                </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3 text-center">
+                        <a class="social-icon-link" href="https://www.instagram.com/elevedepartamentos/" target="_blank"
+                            rel="noopener noreferrer" aria-label="Instagram de Elevé Departamentos">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                            </svg>
+                        </a>
+                    </div>
 
+                    <hr class="w-100 clearfix d-md-none" />
 
-
-                <hr class="w-100 clearfix d-md-none" />
-
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h6 class="text-uppercase mb-4 fw-bold">Contacto</h6>
-                    <p>
-                        <i class="fas fa-home me-3"></i> Suipacha 3042
-                    </p>
-                    <p>
-                        <i class="fas fa-envelope me-3"></i> gerencia@elevedepartamentos.com
-                    </p>
-                    <p>
-                        <i class="fas fa-phone me-3"></i> +54 9 342 4455570
-                    </p>
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 fw-bold">Contacto</h6>
+                        <p>
+                            <i class="fas fa-home me-3"></i> Suipacha 3042
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i> gerencia@elevedepartamentos.com
+                        </p>
+                        <p>
+                            <i class="fas fa-phone me-3"></i> +54 9 342 4455570
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+
+    </div>
+    <!-- FIN CONTENEDOR DE DIAPOSITIVAS -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js?v=9"></script>
 
     <!-- RENDER MODAL -->
     <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
