@@ -2,10 +2,10 @@
  * Elevé Departamentos - Navegación por pantallas (Desktop) y animaciones
  */
 document.addEventListener("DOMContentLoaded", () => {
-  /* ------------------------------------------------------------------------
+/* ------------------------------------------------------------------------
      1. CAMBIO DIRECTO DE PANTALLAS EN PC (FULLPAGE CON GPU TRANSFORM)
      ------------------------------------------------------------------------ */
- const wrapper = document.getElementById("fullpage-wrapper");
+  const wrapper = document.getElementById("fullpage-wrapper");
   const navbar = document.querySelector(".navbar");
   const footer = document.querySelector("footer");
   const slides = Array.from(
@@ -13,30 +13,23 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   let currentSlide = 0;
   let isAnimating = false;
-  let wheelTimeout = null;
-  const slideDuration = 950; // Sincronizado con los 0.95s del CSS
+  const slideDuration = 950;
 
   const getNavHeight = () => (navbar ? navbar.offsetHeight : 56);
 
-  // Marca cuál diapositiva está activa para la animación de escala/opacidad
-  const updateActiveSlideClass = (index) => {
-    slides.forEach((slide, i) => {
-      // Si estamos en el footer (index === slides.length), mantenemos activo #nosotros
-      const activeIdx = index === slides.length ? slides.length - 1 : index;
-      slide.classList.toggle("is-active-slide", i === activeIdx);
-    });
-  };
+  const goToSlide = (index, force = false) => {
+    if (index < 0 || index > slides.length) return;
+    if (isAnimating && !force) return;
 
-  // Inicializar la primera diapositiva como activa al cargar
-  updateActiveSlideClass(0);
-
-  const goToSlide = (index) => {
-    if (index < 0 || index > slides.length || isAnimating) return;
     isAnimating = true;
     currentSlide = index;
-    updateActiveSlideClass(currentSlide);
 
     if (window.innerWidth > 991 && wrapper) {
+      // Evita que el navegador desplace el scroll nativo oculto al usar el navbar
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+
       let targetOffset;
       if (currentSlide === slides.length && footer) {
         targetOffset = wrapper.scrollHeight - window.innerHeight;
@@ -49,13 +42,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (targetEl) targetEl.scrollIntoView({ behavior: "smooth" });
     }
 
-    if (slides[currentSlide]) {
-      const revealChild = slides[currentSlide].querySelector(".reveal-section");
-      if (revealChild) revealChild.classList.add("is-revealed");
-
-      if (slides[currentSlide].id === "caracteristicas") {
-        triggerSpecsAnimation();
+    // Revelar contenido de la sección destino y de todas las anteriores para que nada quede oculto al saltar con el menú
+    slides.forEach((slide, idx) => {
+      if (idx <= currentSlide) {
+        const revealChild = slide.querySelector(".reveal-section");
+        if (revealChild) revealChild.classList.add("is-revealed");
       }
+    });
+
+    if (slides[currentSlide] && slides[currentSlide].id === "caracteristicas") {
+      triggerSpecsAnimation();
     }
 
     setTimeout(() => {
@@ -63,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, slideDuration);
   };
 
-  // Escuchar rueda del mouse filtrando inercia residual
+  // Escuchar rueda del mouse en PC (> 991px)
   window.addEventListener(
     "wheel",
     (e) => {
@@ -74,9 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isAnimating) return;
       if (Math.abs(e.deltaY) < 20) return;
 
-      clearTimeout(wheelTimeout);
-      wheelTimeout = setTimeout(() => {}, 50);
-
       if (e.deltaY > 0) {
         goToSlide(currentSlide + 1);
       } else {
@@ -85,6 +78,55 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { passive: false }
   );
+
+  // Navegación con flechas del teclado en PC
+  window.addEventListener("keydown", (e) => {
+    if (window.innerWidth <= 991 || !wrapper) return;
+    if (document.body.classList.contains("modal-open")) return;
+
+    if (e.key === "ArrowDown" || e.key === "PageDown") {
+      e.preventDefault();
+      goToSlide(currentSlide + 1);
+    } else if (e.key === "ArrowUp" || e.key === "PageUp") {
+      e.preventDefault();
+      goToSlide(currentSlide - 1);
+    }
+  });
+
+  // Enlaces del Navbar: siempre tienen prioridad (force = true)
+  document.querySelectorAll('.navbar a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const targetId = link.getAttribute("href");
+      if (targetId === "#") {
+        e.preventDefault();
+        goToSlide(0, true);
+        return;
+      }
+      const targetIndex = slides.findIndex((el) => `#${el.id}` === targetId);
+      if (targetIndex !== -1 && window.innerWidth > 991 && wrapper) {
+        e.preventDefault();
+        goToSlide(targetIndex, true);
+      }
+    });
+  });
+
+  // Recalibrar al redimensionar
+  window.addEventListener("resize", () => {
+    if (!wrapper) return;
+    if (window.innerWidth <= 991) {
+      wrapper.style.transform = "none";
+      currentSlide = 0;
+    } else {
+      window.scrollTo(0, 0);
+      let targetOffset;
+      if (currentSlide === slides.length && footer) {
+        targetOffset = wrapper.scrollHeight - window.innerHeight;
+      } else {
+        targetOffset = slides[currentSlide].offsetTop - getNavHeight();
+      }
+      wrapper.style.transform = `translate3d(0, -${Math.max(0, targetOffset)}px, 0)`;
+    }
+  });
 
   /* ------------------------------------------------------------------------
      2. GALERÍA MODAL DE RENDERS

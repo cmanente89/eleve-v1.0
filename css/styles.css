@@ -51,14 +51,12 @@ h1, h2, h3, .navbar-brand {
     z-index: 1030;
   }
 
-#fullpage-wrapper {
+  #fullpage-wrapper {
     padding-top: 56px;
-    /* Curva quintic ease-out: arranca con suavidad y frena casi sin fricción */
     transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform;
   }
 
-  /* Efecto sutil de enfoque/desenfoque al cambiar de diapositiva */
   #hero-section,
   #info,
   #caracteristicas,
@@ -71,20 +69,28 @@ h1, h2, h3, .navbar-brand {
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
-    transition: opacity 0.8s ease, transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  /* Las secciones inactivas quedan levemente en segundo plano */
-  #fullpage-wrapper section:not(.is-active-slide),
-  #fullpage-wrapper header:not(.is-active-slide) {
-    opacity: 0.45;
-    transform: scale(0.985);
+  #hero-section {
+    flex-direction: row;
+    justify-content: flex-start !important;
   }
 
-  /* La diapositiva actual recupera el 100% de nitidez y escala */
-  #fullpage-wrapper .is-active-slide {
-    opacity: 1 !important;
-    transform: scale(1) !important;
+  #planos .tab-pane img {
+    max-height: 58vh;
+    width: auto;
+  }
+
+  #renders .gallery-item {
+    max-height: 26vh;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  footer.site-footer {
+    min-height: auto;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
   }
 }
 
@@ -652,37 +658,82 @@ h1, h2, h3, .navbar-brand {
 /* ==========================================================================
    PIE DE PÁGINA (FOOTER)
    ========================================================================== */
-footer {
+.site-footer {
   background-color: var(--color-texto-oscuro);
   color: var(--color-texto-claro);
   border-top: 3px solid var(--color-primario);
 }
 
-footer a {
+.footer-title {
+  font-family: var(--fuente-titulos);
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
   color: var(--color-texto-claro);
-  text-decoration: none;
 }
 
-footer a:hover {
-  color: var(--color-primario);
+.footer-tagline {
+  color: var(--color-fondo-claro-alt);
+  font-size: 0.95rem;
 }
 
+/* Ícono de Instagram proporcionado y con marco circular sutil */
 .social-icon-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 254, 0.25);
   color: var(--color-texto-claro);
-  transition: color 0.25s ease, transform 0.25s ease;
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
 .social-icon-link svg {
-  width: 70px;
-  height: 70px;
+  width: 26px;
+  height: 26px;
 }
 
 .social-icon-link:hover {
   color: var(--color-primario);
+  border-color: var(--color-primario);
   transform: translateY(-3px);
+}
+
+/* Bloque de contacto alineado en una sola línea por ítem */
+.footer-contact-wrapper {
+  max-width: 340px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+  font-size: 0.92rem;
+  color: var(--color-fondo-claro-alt);
+}
+
+.footer-contact-item i {
+  width: 18px;
+  text-align: center;
+  color: var(--color-primario); /* Íconos en rojo de tu paleta */
+  flex-shrink: 0;
+}
+
+.footer-contact-item a {
+  color: var(--color-fondo-claro-alt);
+  text-decoration: none;
+  word-break: break-word;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-item a:hover {
+  color: var(--color-primario);
+}
+
+@media (max-width: 767px) {
+  .footer-contact-item {
+    justify-content: center;
+  }
 }
