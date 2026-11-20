@@ -51,12 +51,14 @@ h1, h2, h3, .navbar-brand {
     z-index: 1030;
   }
 
-  #fullpage-wrapper {
+#fullpage-wrapper {
     padding-top: 56px;
-    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    /* Curva quintic ease-out: arranca con suavidad y frena casi sin fricción */
+    transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform;
   }
 
+  /* Efecto sutil de enfoque/desenfoque al cambiar de diapositiva */
   #hero-section,
   #info,
   #caracteristicas,
@@ -69,7 +71,22 @@ h1, h2, h3, .navbar-brand {
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
+    transition: opacity 0.8s ease, transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
   }
+
+  /* Las secciones inactivas quedan levemente en segundo plano */
+  #fullpage-wrapper section:not(.is-active-slide),
+  #fullpage-wrapper header:not(.is-active-slide) {
+    opacity: 0.45;
+    transform: scale(0.985);
+  }
+
+  /* La diapositiva actual recupera el 100% de nitidez y escala */
+  #fullpage-wrapper .is-active-slide {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+}
 
   /* El Hero mantiene su alineación a la izquierda */
   #hero-section {
@@ -94,7 +111,7 @@ h1, h2, h3, .navbar-brand {
     display: flex;
     align-items: center;
   }
-}
+
 
 /* ==========================================================================
    ANIMACIÓN DE ENTRADA ENTRE SECCIONES (SCROLL REVEAL)

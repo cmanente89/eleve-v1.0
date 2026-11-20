@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ------------------------------------------------------------------------
      1. CAMBIO DIRECTO DE PANTALLAS EN PC (FULLPAGE CON GPU TRANSFORM)
      ------------------------------------------------------------------------ */
-  const wrapper = document.getElementById("fullpage-wrapper");
+ const wrapper = document.getElementById("fullpage-wrapper");
   const navbar = document.querySelector(".navbar");
   const footer = document.querySelector("footer");
   const slides = Array.from(
@@ -13,15 +13,28 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   let currentSlide = 0;
   let isAnimating = false;
-  const slideDuration = 680;
+  let wheelTimeout = null;
+  const slideDuration = 950; // Sincronizado con los 0.95s del CSS
 
   const getNavHeight = () => (navbar ? navbar.offsetHeight : 56);
 
+  // Marca cuál diapositiva está activa para la animación de escala/opacidad
+  const updateActiveSlideClass = (index) => {
+    slides.forEach((slide, i) => {
+      // Si estamos en el footer (index === slides.length), mantenemos activo #nosotros
+      const activeIdx = index === slides.length ? slides.length - 1 : index;
+      slide.classList.toggle("is-active-slide", i === activeIdx);
+    });
+  };
+
+  // Inicializar la primera diapositiva como activa al cargar
+  updateActiveSlideClass(0);
+
   const goToSlide = (index) => {
-    // Permite un paso extra (index === slides.length) para apoyar el footer abajo sin espacio blanco
     if (index < 0 || index > slides.length || isAnimating) return;
     isAnimating = true;
     currentSlide = index;
+    updateActiveSlideClass(currentSlide);
 
     if (window.innerWidth > 991 && wrapper) {
       let targetOffset;
@@ -36,12 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (targetEl) targetEl.scrollIntoView({ behavior: "smooth" });
     }
 
-    // Revelar contenido y disparar contador si corresponde
     if (slides[currentSlide]) {
       const revealChild = slides[currentSlide].querySelector(".reveal-section");
-      if (revealChild) {
-        revealChild.classList.add("is-revealed");
-      }
+      if (revealChild) revealChild.classList.add("is-revealed");
 
       if (slides[currentSlide].id === "caracteristicas") {
         triggerSpecsAnimation();
@@ -53,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, slideDuration);
   };
 
-  // Escuchar rueda del mouse solo en PC (> 991px) y si no hay un modal abierto
+  // Escuchar rueda del mouse filtrando inercia residual
   window.addEventListener(
     "wheel",
     (e) => {
@@ -62,9 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       e.preventDefault();
       if (isAnimating) return;
+      if (Math.abs(e.deltaY) < 20) return;
 
-      // Ignorar micro-movimientos accidentales de trackpad
-      if (Math.abs(e.deltaY) < 15) return;
+      clearTimeout(wheelTimeout);
+      wheelTimeout = setTimeout(() => {}, 50);
 
       if (e.deltaY > 0) {
         goToSlide(currentSlide + 1);
@@ -74,54 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { passive: false }
   );
-
-  // Navegación con flechas del teclado en PC
-  window.addEventListener("keydown", (e) => {
-    if (window.innerWidth <= 991 || !wrapper) return;
-    if (document.body.classList.contains("modal-open")) return;
-
-    if (e.key === "ArrowDown" || e.key === "PageDown") {
-      e.preventDefault();
-      goToSlide(currentSlide + 1);
-    } else if (e.key === "ArrowUp" || e.key === "PageUp") {
-      e.preventDefault();
-      goToSlide(currentSlide - 1);
-    }
-  });
-
-  // Sincronizar enlaces del Navbar con las diapositivas
-  document.querySelectorAll('.navbar a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (e) => {
-      const targetId = link.getAttribute("href");
-      if (targetId === "#") {
-        e.preventDefault();
-        goToSlide(0);
-        return;
-      }
-      const targetIndex = slides.findIndex((el) => `#${el.id}` === targetId);
-      if (targetIndex !== -1 && window.innerWidth > 991 && wrapper) {
-        e.preventDefault();
-        goToSlide(targetIndex);
-      }
-    });
-  });
-
-  // Recalibrar posición al redimensionar la ventana o pasar a modo móvil
-  window.addEventListener("resize", () => {
-    if (!wrapper) return;
-    if (window.innerWidth <= 991) {
-      wrapper.style.transform = "none";
-      currentSlide = 0;
-    } else {
-      let targetOffset;
-      if (currentSlide === slides.length && footer) {
-        targetOffset = wrapper.scrollHeight - window.innerHeight;
-      } else {
-        targetOffset = slides[currentSlide].offsetTop - getNavHeight();
-      }
-      wrapper.style.transform = `translate3d(0, -${Math.max(0, targetOffset)}px, 0)`;
-    }
-  });
 
   /* ------------------------------------------------------------------------
      2. GALERÍA MODAL DE RENDERS
